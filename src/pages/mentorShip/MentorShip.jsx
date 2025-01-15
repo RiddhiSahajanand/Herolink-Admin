@@ -1,16 +1,15 @@
+
 import { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import axiosInstance, { authHeader } from "../../helper/axios";
 import toast from "react-hot-toast";
-
 import DeleteModal from "../../components/modal/delete/DeleteModal";
-import AddArticle from "../../components/offcanvas/article/AddArticle";
-import EditArticle from "../../components/offcanvas/article/EditArticle";
-import { json, useNavigate } from "react-router-dom";
+import AddPlan from "../../components/modal/plan/AddPlan";
+import EditPlan from "../../components/modal/plan/EditPlan";
+import AddMentorShip from "../../components/modal/mentorship/AddMentorShip";
+import EditMentorShip from "../../components/modal/mentorship/EditMentorShip";
 
-const Article = () => {
-    const navigate = useNavigate();
-
+const MentorShip = () => {
     const [data, setData] = useState([]);
     const [filterText, setFilterText] = useState("");
     const [isLoading, setIsLoading] = useState(false);
@@ -28,7 +27,7 @@ const Article = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [perPage, setPerPage] = useState(10);
 
-    const deleteText = "article";
+    const deleteText = "mentorship";
 
     const handleClose = () => {
         setAddShow(false);
@@ -38,11 +37,11 @@ const Article = () => {
     }
 
 
-    const fetchArticleData = async () => {
+    const fetchMentorShipData = async () => {
         setIsLoading(true);
         try {
 
-            const data = await axiosInstance.get(`/admin/article/list`, authHeader());
+            const data = await axiosInstance.get(`/admin/mentorship/list`, authHeader());
 
             if (data?.data?.status === true) {
                 setData(data?.data?.data);
@@ -57,16 +56,16 @@ const Article = () => {
     };
 
     useEffect(() => {
-        fetchArticleData();
+        fetchMentorShipData();
     }, []);
 
     const handleDelete = async () => {
         try {
 
-            const data = await axiosInstance.delete(`/admin/article/delete/${deleteId}`, authHeader());
+            const data = await axiosInstance.delete(`/admin/mentorship/delete/${deleteId}`, authHeader());
             if (data?.status === 200) {
                 toast.success(data?.data?.message);
-                fetchArticleData();
+                fetchMentorShipData();
                 handleClose();
             } else {
                 toast.error(data?.data?.message);
@@ -87,31 +86,27 @@ const Article = () => {
             left: true,
         },
         {
-            name: 'Article',
-            selector: row => row.title,
-            width: '400px'
-        },
-        {
-            name: 'Image',
-            selector: row => <img src={row.image} height={60} />,
-        },
-        {
-            name: 'Uploaded By',
-            selector: row => row.uploadedBy,
-        },
-
-        {
-            name: 'Created Date',
-            selector: row => new Date(row?.createdAt).toISOString().split('T')[0],
+            name: 'Mentorship',
+            selector: row => row.name,
             left: true,
+            width: '300px',
         },
         {
             name: 'Status',
             selector: row => <div className={`m-auto ${row.status === "active" ? "active" : "in-active"}`}>
                 {row.status}
             </div>,
-            // width: '150px'
+            left: true,
+            width: '150px',
         },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
         // {
         //     name: '',
         //     selector: row => <div></div>,
@@ -126,10 +121,8 @@ const Article = () => {
                 <div className="d-flex align-items-center">
                     <div style={{ display: 'flex', justifyContent: 'space-between', gap: '8px' }}>
                         <img src="/images/pencil-white.png" alt="" onClick={() => {
-                            // setEditShow(true);
-                            // setEditData(row);
-                            navigate("/admin/edit-article")
-                            localStorage.setItem("edit-article", JSON.stringify(row));
+                            setEditShow(true);
+                            setEditData(row);
                         }} style={{ cursor: 'pointer', height: '20px', width: '20px' }} />
                         <img src="/images/delete-white.png" alt="" onClick={() => {
                             setDeleteShow(true);
@@ -189,8 +182,7 @@ const Article = () => {
 
 
     const filteredData = data?.filter((item) => {
-
-        const searchStr = `${item.title}`.toLowerCase();
+        const searchStr = `${item.name}`.toLowerCase();
         return searchStr.includes(filterText.toLowerCase());
     });
 
@@ -215,14 +207,9 @@ const Article = () => {
                         <div className="card">
                             <div className="card-header">
                                 <div className="d-flex align-items-center justify-content-between flex-wrap gap-3">
-                                    <h4 className="mb-0 page-title">Article List</h4>
-                                    <button className="add-btn" type="button"
-                                        onClick={() =>
-                                            // setAddShow(true)
-                                            navigate("/admin/add-article")
-                                        }
-                                    >
-                                        + Add New Article
+                                    <h4 className="mb-0 page-title">Mentorship List</h4>
+                                    <button className="add-btn" type="button" onClick={() => setAddShow(true)}>
+                                        + Add New Mentorship
                                     </button>
                                 </div>
                             </div>
@@ -274,12 +261,12 @@ const Article = () => {
                 </div>
             </section>
             {/* ======= Data Add Offcanvas ======== */}
-            <AddArticle show={addShow} fetchArticleData={fetchArticleData} handleClose={handleClose} />
-            <EditArticle show={editShow} fetchArticleData={fetchArticleData} handleClose={handleClose} editData={editData} />
+            <AddMentorShip show={addShow} fetchMentorShipData={fetchMentorShipData} handleClose={handleClose} />
+            <EditMentorShip show={editShow} fetchMentorShipData={fetchMentorShipData} handleClose={handleClose} editData={editData} />
             <DeleteModal show={deleteShow} handleClose={handleClose} handleDelete={handleDelete} text={deleteText} />
         </>
     )
 }
-export default Article;
+export default MentorShip;
 
 

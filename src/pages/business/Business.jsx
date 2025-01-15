@@ -87,7 +87,7 @@ const Business = () => {
             //     </div>
             // ),
             // width: '199px',
-            width: '100px',
+            width: '70px',
             left: true,
         },
         {
@@ -101,23 +101,24 @@ const Business = () => {
             selector: row => <div className={`m-auto ${row.status === "active" ? "active" : "in-active"}`}>
                 {row.status}
             </div>,
+            width: '150px',
         },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
         {
             name: 'Action',
             selector: row => (
@@ -134,7 +135,7 @@ const Business = () => {
                     </div>
                 </div>
             ),
-            width: '100px',
+            // width: '100px',
         }
     ];
 

@@ -17,7 +17,6 @@ const initialState = {
 const EditArticle = () => {
 
     const editData = JSON.parse(localStorage.getItem("edit-article"));
-    // console.log(editData);
 
     const navigate = useNavigate();
 

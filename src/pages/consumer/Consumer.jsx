@@ -83,7 +83,7 @@ const Consumer = () => {
         {
             name: 'ID',
             selector: (_, index) => (currentPage - 1) * perPage + (index + 1),
-            width: '100px',
+            width: '70px',
             left: true,
         },
         {
@@ -97,24 +97,24 @@ const Consumer = () => {
             selector: row => <div className={`m-auto ${row.status === "active" ? "active" : "in-active"}`}>
                 {row.status}
             </div>,
+            width: '150px'
         },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
         {
             name: 'Action',
             selector: row => (
@@ -131,7 +131,7 @@ const Consumer = () => {
                     </div>
                 </div>
             ),
-            width: '100px'
+            // width: '100px'
         }
     ];
 

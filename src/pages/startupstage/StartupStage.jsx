@@ -88,7 +88,7 @@ const Startupstage = () => {
                     {(currentPage - 1) * perPage + (index + 1)}
                 </div>
             ),
-            width: '100px',
+            width: '70px',
             left: true,
 
         },
@@ -103,23 +103,24 @@ const Startupstage = () => {
             selector: row => <div className={`m-auto ${row.status === "active" ? "active" : "in-active"}`}>
                 {row.status}
             </div>,
+            width: '150px'
         },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
         {
             name: 'Action',
             selector: row => (
@@ -136,7 +137,7 @@ const Startupstage = () => {
                     </div>
                 </div>
             ),
-            width: '100px'
+            // width: '100px'
         }
     ];
 

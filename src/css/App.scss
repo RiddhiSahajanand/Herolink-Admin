@@ -414,13 +414,24 @@ small,
 }
 
 .login-box .right-box .glass-effect .vector-img {
-  position: absolute;
-  bottom: 140px;
-  left: -30px;
-  right: 0;
-  width: 60%;
-  object-fit: cover;
-  transform: translate(120px, 0);
+  // position: absolute;
+  // bottom: 40px;
+  // left: -30px;
+  // right: 0;
+  width: 20%;
+  // object-fit: cover;
+  // transform: translate(120px, 0);
+}
+
+.bottom-logo-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 60px;
+}
+
+.bottom-logo {
+  width: 120px;
 }
 
 @media (max-width: 1400px) {
@@ -1763,4 +1774,14 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .recomanded-text {
   color: #fff;
   margin-top: 5px;
+}
+
+.sidebar-logo {
+  max-width: 70%;
+  padding: 10px;
+}
+
+.sidebar-logo-mini {
+  max-width: 100%;
+  padding: 10px;
 }

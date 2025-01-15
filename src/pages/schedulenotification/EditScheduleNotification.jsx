@@ -26,10 +26,6 @@ const AddScheduleNotification = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState(initialState);
-    console.log('====================================');
-    console.log("editData", editData);
-    console.log('====================================');
-
     const [editorData, setEditorData] = useState('');
 
     useEffect(() => {
@@ -67,9 +63,6 @@ const AddScheduleNotification = () => {
         }));
     };
     const currentDate = new Date().toISOString().split("T")[0];
-    console.log('====================================');
-    console.log("formData.startDate", formData.startDate, currentDate);
-    console.log('====================================');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -301,9 +294,6 @@ const AddScheduleNotification = () => {
                                             onChange={(e) => {
                                                 const inputTime = e.target.value; // Get the value entered
                                                 const formattedTime = formatTo24Hour(inputTime);
-                                                console.log('====================================');
-                                                console.log("formattedTime", formattedTime);
-                                                console.log('====================================');
                                                 handleInputChange(e); // Update formData
                                             }} required
                                         />

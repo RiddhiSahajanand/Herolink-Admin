@@ -25,10 +25,6 @@ const AddScheduleNotification = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [formData, setFormData] = useState(initialState);
-    console.log('====================================');
-    console.log("notificatiobformData", formData);
-    console.log('====================================');
-
     const [editorData, setEditorData] = useState('');
 
     const handleInputChange = (e) => {
@@ -84,9 +80,6 @@ const AddScheduleNotification = () => {
             time: formData?.time,
             status: formData?.status
         }
-        console.log('====================================');
-        console.log("payload", payload);
-        console.log('====================================');
 
         try {
             const data = await axiosInstance.post(`/admin/schedule-notification/add`, payload, authImageHeader());
@@ -276,9 +269,6 @@ const AddScheduleNotification = () => {
                                             onChange={(e) => {
                                                 const inputTime = e.target.value; // Get the value entered
                                                 const formattedTime = formatTo24Hour(inputTime);
-                                                console.log('====================================');
-                                                console.log("formattedTime", formattedTime);
-                                                console.log('====================================');
                                                 handleInputChange(e); // Update formData
                                             }} required
                                         />

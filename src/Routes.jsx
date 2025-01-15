@@ -21,6 +21,8 @@ import EditNews from './pages/news/EditNews';
 import Schedulenotification from './pages/schedulenotification/Schedulenotification';
 import AddScheduleNotification from './pages/schedulenotification/AddScheduleNotification';
 import EditScheduleNotification from './pages/schedulenotification/EditScheduleNotification';
+import Feed from './pages/feed/Feed';
+import MentorShip from './pages/mentorShip/MentorShip';
 
 const AppRoutes = () => {
     return (
@@ -37,6 +39,7 @@ const AppRoutes = () => {
                 <Route path='/admin/startup-stage' element={<Startupstage />} />
                 <Route path='/admin/your-business-right-now' element={<BusinessRightNow />} />
                 <Route path='/admin/plan' element={<Plan />} />
+                <Route path='/admin/mentor-ship' element={<MentorShip />} />
                 <Route path='/admin/article' element={<Article />} />
                 <Route path='/admin/add-article' element={<AddArticle />} />
                 <Route path='/admin/edit-article' element={<EditArticle />} />
@@ -46,8 +49,7 @@ const AppRoutes = () => {
                 <Route path='/admin/notification' element={<Schedulenotification />} />
                 <Route path='/admin/add-notification' element={<AddScheduleNotification />} />
                 <Route path='/admin/edit-notification' element={<EditScheduleNotification />} />
-
-
+                <Route path='/admin/feed' element={<Feed />} />
             </Route>
         </Routes>
     )

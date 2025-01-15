@@ -312,7 +312,7 @@ const Industry = () => {
         {
             name: 'ID',
             selector: (_, index) => (currentPage - 1) * perPage + (index + 1),
-            width: '100px',
+            width: '70px',
             left: true,
             // cell: (_, index) => (
             //     <div style={{ width: "199px" }}>
@@ -333,25 +333,25 @@ const Industry = () => {
             selector: row => <div className={`m-auto ${row.status === "active" ? "active" : "in-active"}`}>
                 {row.status}
             </div>,
-            // width: '200px'
+            width: '150px'
             // center: true, 
         },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
         {
             name: 'Action',
             selector: row => (
@@ -368,7 +368,7 @@ const Industry = () => {
                     </div>
                 </div>
             ),
-            width: '100px',
+            // width: '100px',
             // center: true,
         }
     ];

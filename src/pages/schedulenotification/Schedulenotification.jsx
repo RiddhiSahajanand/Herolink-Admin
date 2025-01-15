@@ -87,7 +87,7 @@ const Schedulenotification = () => {
                     {(currentPage - 1) * perPage + (index + 1)}
                 </div>
             ),
-            width: '100px',
+            width: '70px',
             left: true,
         },
         {
@@ -192,7 +192,7 @@ const Schedulenotification = () => {
 
     const filteredData = data?.filter((item) => {
 
-        const searchStr = `${item.name} ${item?.role}`.toLowerCase();
+        const searchStr = `${item.title}`.toLowerCase();
         return searchStr.includes(filterText.toLowerCase());
     });
 

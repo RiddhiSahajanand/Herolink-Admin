@@ -73,7 +73,7 @@ const Login = () => {
                     <div className="col-lg-6 left-box">
                         <div className="row align-items-center">
                             <div className="header-text mb-4">
-                                {/* <img src="/images/ksm-logo.svg" alt="logo" className="img-fluid mb-3" draggable="false" /> */}
+                                <img src="/images/Herolinksmainlogo.png" alt="logo" className="img-fluid mb-3" style={{ width: '150px' }} draggable="false" />
                                 <h4 className="mb-2">Welcome Back ! <span>👋</span></h4>
                                 <h4 className="mb-2">Sign In </h4>
                                 <p>Please provide the required details for further proceed</p>
@@ -126,14 +126,16 @@ const Login = () => {
                         <div className="glass-effect">
                             {/* <h2>Very Good Works Are Watting For You 😉</h2>
                             <h5 className="mt-3">Login Now 🤞</h5> */}
-                            <h2>Herolinks</h2>
+                            <h2>Herolink</h2>
                             <h5 className="mt-3">Because Every Hero Needs a Link! 😉</h5>
-                            {/* <img src="/images/ksm-logo.svg" alt="vector" className="img-fluid vector-img" draggable="false" /> */}
+                            <div className='bottom-logo-view'>
+                                <img src="/images/Herolinkslogowhite.png" alt="vector" className="img-fluid bottom-logo" draggable="false" />
+                            </div>
                         </div>
                     </div>
-                </div >
-            </div >
-        </section >
+                </div>
+            </div>
+        </section>
     )
 }
 

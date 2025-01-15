@@ -82,7 +82,7 @@ const News = () => {
         {
             name: 'ID',
             selector: (_, index) => (currentPage - 1) * perPage + (index + 1),
-            width: '100px',
+            width: '70px',
             left: true,
         },
         {
@@ -98,20 +98,27 @@ const News = () => {
             name: 'Uploaded By',
             selector: row => row.uploadedBy,
         },
+
+        {
+            name: 'Created Date',
+            selector: row => new Date(row?.createdAt).toISOString().split('T')[0],
+            left: true,
+        },
         {
             name: 'Status',
             selector: row => <div className={`m-auto ${row.status === "active" ? "active" : "in-active"}`}>
                 {row.status}
             </div>,
+            // width: '150px'
         },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
+        // {
+        //     name: '',
+        //     selector: row => <div></div>,
+        // },
         {
             name: 'Action',
             selector: row => (
@@ -130,7 +137,7 @@ const News = () => {
                     </div>
                 </div>
             ),
-            width: '100px',
+            // width: '100px',
         }
     ];
     const customStyles = {
@@ -181,7 +188,7 @@ const News = () => {
 
     const filteredData = data?.filter((item) => {
 
-        const searchStr = `${item.name} ${item?.role}`.toLowerCase();
+        const searchStr = `${item.title}`.toLowerCase();
         return searchStr.includes(filterText.toLowerCase());
     });
 

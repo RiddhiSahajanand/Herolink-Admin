@@ -9,6 +9,10 @@ import yourbusinessicon from "../../../public/images/your-business.png";
 import palnicon from "../../../public/images/plan.png";
 import newsicon from "../../../public/images/news.png";
 import articleicon from "../../../public/images/article.png";
+import feedicon from "../../../public/images/feedicon.png";
+import mentorship from "../../../public/images/mentorship.png";
+
+
 
 import axiosInstance, { authHeader } from '../../helper/axios';
 import { useNavigate } from 'react-router-dom';
@@ -87,7 +91,7 @@ const Dashboard = () => {
                             <div className="row">
                                 <div className="col">
                                     <span className="h6 fw-semibold  text-md d-block mb-2" >
-                                        Total Inustry
+                                        Total Industry
                                     </span>
                                     <span className="mb-0 card-title">
                                         {data?.industryCount}
@@ -99,7 +103,6 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -164,7 +167,6 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -212,6 +214,50 @@ const Dashboard = () => {
                         </div>
                     </div>
                 </div>
+                <div className="col-xl-3 col-md-6 col-12 mt-5 dashboard-card" onClick={() => navigate('/admin/mentor-ship')}>
+                    <div className="shadow border-0">
+                        <div className="card-body-dashboard">
+                            <div className="row">
+                                <div className="col">
+                                    <span className="h6 fw-semibold  text-md d-block mb-2" >
+                                        Total Mentorship
+                                    </span>
+                                    <span className="mb-0 card-title">
+                                        {data?.mentorshipCount}
+                                    </span>
+                                </div>
+                                <div className="col-auto">
+                                    <div className="icon icon-shape text-white text-lg rounded-circle dashboard-icon">
+                                        <img src={mentorship} alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div className="col-xl-3 col-md-6 col-12 mt-5 dashboard-card" onClick={() => navigate('/admin/feed')}>
+                    <div className="shadow border-0">
+                        <div className="card-body-dashboard">
+                            <div className="row">
+                                <div className="col">
+                                    <span className="h6 fw-semibold  text-md d-block mb-2" >
+                                        Total Feed
+                                    </span>
+                                    <span className="mb-0 card-title">
+                                        {data?.feedCount}
+                                    </span>
+                                </div>
+                                <div className="col-auto">
+                                    <div className="icon icon-shape text-white text-lg rounded-circle dashboard-icon">
+                                        <img src={feedicon} alt="" />
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
                 <div className="col-xl-3 col-md-6 col-12 mt-5 dashboard-card" onClick={() => navigate('/admin/article')}>
                     <div className="shadow border-0">
                         <div className="card-body-dashboard">
@@ -230,7 +276,6 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>

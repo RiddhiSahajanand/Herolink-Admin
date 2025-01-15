@@ -6,8 +6,7 @@ import { Form } from "react-bootstrap";
 import DeleteModal from "../../components/modal/delete/DeleteModal";
 import { Link } from "react-router-dom";
 import { Flex, Progress } from 'antd';
-
-
+import Avatar from 'react-avatar';
 
 const Users = () => {
     const [data, setData] = useState([]);
@@ -98,32 +97,56 @@ const Users = () => {
             }
         }
     };
-
+    const getInitials = (name) => {
+        console.log("name", name);
+        if (!name) return '';
+        return name?.slice(0, 2).toLowerCase();
+    };
     const columns = [
         {
             name: 'ID',
             selector: (_, index) => (currentPage - 1) * perPage + (index + 1),
-            width: '100px',
+            width: '70px',
+            left: true,
+        },
+        {
+            name: 'Profile',
+            selector: row => (
+                <div className="py-2">
+                    {row?.profile && !row.profile.includes('octet-stream') && !row.profile.includes('.pdf') ? (
+                        <Avatar src={row.profile} round size="40" />
+                    ) : row?.yourname ? (
+                        <Avatar name={row.yourname.slice(0, 1) + ' ' + row.yourname.slice(1, 2)} round size="40" color="#4A5DF9" />
+                    ) : null}
+                </div>
+            ),
+            left: true,
+            width: '120px',
+        },
+        {
+            name: 'Username',
+            selector: row => row.yourname,
             left: true,
         },
         {
             name: 'Mobile Number',
             selector: row => row.mobileNumber,
             left: true,
-
+        },
+        {
+            name: 'Email',
+            selector: row => row.email,
+            left: true,
         },
         {
             name: 'Role',
             selector: row => row.role,
             left: true,
-            width: '150px',
+            width: '100px',
         },
         {
             name: "Profile Complete",
             selector: (row) => {
-                console.log('====================================');
-                console.log("row", JSON.parse(row.step));
-                console.log('====================================');
                 const step = JSON.parse(row.step);
                 let percentage = 0;
                 if (row.role === "Founder") {
@@ -136,14 +159,11 @@ const Users = () => {
                     percentage = (step * 100) / 5;
                 }
                 const formattedPercentage = parseInt(percentage).toFixed(0);
-                console.log('====================================');
-                console.log("formattedPercentage", percentage, formattedPercentage);
-                console.log('====================================');
                 // Render the progress bar
                 return (
-                    <Flex vertical gap="small" style={{ width: 150 }}>
+                    <Flex vertical gap="small" style={{ width: 100 }}>
                         <Progress
-                            percent={Math.min(parseInt(formattedPercentage), 100)} // Ensure percentage doesn't exceed 100
+                            percent={Math.min(parseInt(formattedPercentage), 100)}
                             size="small"
                             trailColor="#ffff" // Set the trail color (slightly transparent white)
                             format={(percent) => <span style={{ color: "#fff" }}>{percent}%</span>}
@@ -152,6 +172,7 @@ const Users = () => {
                 );
             },
             left: true,
+            width: '190px',
         },
         {
             name: 'Created Date',
@@ -169,12 +190,10 @@ const Users = () => {
                     onChange={() => handleStatusChange(row.id, row.status)}
                 />
             ),
-            left: true
+            left: true,
+            width: '100px',
         },
-        {
-            name: '',
-            selector: row => <div></div>,
-        },
+
         {
             name: 'Action',
             selector: row => (
@@ -192,8 +211,7 @@ const Users = () => {
                     </div>
                 </div>
             ),
-            // width: '150px', 
-            width: '100px'
+            // width: '100px'
 
 
         }
@@ -248,7 +266,7 @@ const Users = () => {
 
     const filteredData = data?.filter((item) => {
 
-        const searchStr = `${item.mobileNumber} ${item?.role}`.toLowerCase();
+        const searchStr = `${item.mobileNumber}${item?.yourname}${item?.email} ${item?.role}`.toLowerCase();
         return searchStr.includes(filterText.toLowerCase());
     });
 
