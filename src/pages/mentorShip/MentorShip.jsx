@@ -209,7 +209,7 @@ const MentorShip = () => {
                                 <div className="d-flex align-items-center justify-content-between flex-wrap gap-3">
                                     <h4 className="mb-0 page-title">Mentorship List</h4>
                                     <button className="add-btn" type="button" onClick={() => setAddShow(true)}>
-                                        + Add New Mentorship
+                                        + Add Mentorship
                                     </button>
                                 </div>
                             </div>

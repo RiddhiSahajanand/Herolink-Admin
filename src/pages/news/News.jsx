@@ -92,7 +92,7 @@ const News = () => {
         },
         {
             name: 'Image',
-            selector: row => <img src={row.image} height={60} />,
+            selector: row => <div className="py-2"><img src={row.image} height={60} /></div>,
         },
         {
             name: 'Uploaded By',
@@ -220,7 +220,7 @@ const News = () => {
                                             navigate("/admin/add-news")
                                         }
                                     >
-                                        + Add New News
+                                        + Add News
                                     </button>
                                 </div>
                             </div>

@@ -204,7 +204,7 @@ const BusinessRightNow = () => {
                                 <div className="d-flex align-items-center justify-content-between flex-wrap gap-3">
                                     <h4 className="mb-0 page-title">Your Business Right Now List</h4>
                                     <button className="add-btn" type="button" onClick={() => setAddShow(true)}>
-                                        + Add New Your Business Right Now
+                                        + Add Your Business Right Now
                                     </button>
                                 </div>
                             </div>

@@ -224,7 +224,7 @@ const Schedulenotification = () => {
                                             navigate("/admin/add-notification")
                                         }
                                     >
-                                        + Add New Notification
+                                        + Add Notification
                                     </button>
                                 </div>
                             </div>
